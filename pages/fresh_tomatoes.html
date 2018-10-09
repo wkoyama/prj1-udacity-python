@@ -6,193 +6,1187 @@
     <title>Filmes populares do momento!</title>
 
     <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <style type="text/css" media="screen">
-        h2 {
-            font-size: 17px;
-            word-break: break-word;
-        }
-        body {
-            padding-top: 80px;
-        }
-        #trailer .modal-dialog {
-            margin-top: 200px;
-            width: 640px;
-            height: 480px;
-        }
-        .hanging-close {
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            z-index: 9001;
-        }
-        #trailer-video {
-            width: 100%;
-            height: 100%;
-        }
-        .movie-tile {
-            margin-bottom: 20px;
-            padding-top: 20px;
-        }
-        .movie-tile:hover {
-            background-color: #EEE;
-            cursor: pointer;
-        }
-        .scale-media {
-            padding-bottom: 56.25%;
-            position: relative;
-        }
-        .scale-media iframe {
-            border: none;
-            height: 100%;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 0;
-            background-color: white;
-        }
-    </style>
-    <script type="text/javascript" charset="utf-8">
-        // Pause the video when the modal is closed
-        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            // Remove the src so the player itself gets removed, as this is the only
-            // reliable way to ensure the video stops playing in IE
-            $("#trailer-video-container").empty();
-        });
-        // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
-            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
-              'id': 'trailer-video',
-              'type': 'text-html',
-              'src': sourceUrl,
-              'frameborder': 0
-            }));
-        });
-        // Animate in the movies when the page loads
-        $(document).ready(function () {
-          $('.movie-tile').hide().first().show("fast", function showNext() {
-            $(this).next("div").show("fast", showNext);
-          });
-        });
-    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/movie-content.css">
 </head>
 
   <body>
-    <!-- Trailer Video Modal -->
-    <div class="modal" id="trailer">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
-            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
-          </a>
-          <div class="scale-media" id="trailer-video-container">
-          </div>
+    
+     
+<!-- The overlay -->
+    <div id="movie-content-335983" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(335983)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/6RN23T5s0pOsfRJ7h9WAIh44VfY.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Venom
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Eddie Brock (Tom Hardy) é um jornalista que investiga o misterioso trabalho de um cientista, suspeito de utilizar cobaias humanas em experimentos mortais. Quando ele acaba entrando em contato com um simbionte alienígena, Eddie se torna Venom, uma máquina de matar incontrolável, que nem ele pode conter.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>692.629</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6.7</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>523</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="335983">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-335983"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-363088" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(363088)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/azH25XpelbpzSEg8JoQVJQsFNF7.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Homem-Formiga e a Vespa
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Após ter ajudado o Capitão América na batalha contra o Homem de Ferro na Alemanha, Scott Lang (Paul Rudd) é condenado a dois anos de prisão domiciliar, por ter quebrado o Tratado de Sokovia. Diante desta situação, ele foi obrigado a se aposentar temporariamente do posto de super-herói. Restando apenas três dias para o término deste prazo, ele tem um estranho sonho com Janet Van Dyne (Michelle Pfeiffer), que desapareceu 30 anos atrás ao entrar no mundo quântico em um ato de heroísmo. Ao procurar o dr. Hank Pym (Michael Douglas) e sua filha Hope (Evangeline Lilly) em busca de explicações, Scott é rapidamente cooptado pela dupla para que possa ajudá-los em sua nova missão: construir um túnel quântico, com o objetivo de resgatar Janet de seu limbo.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>247.334</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6.9</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>2509</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="363088">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-363088"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-439079" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(439079)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/9ShELeGBnk5HYgI0cLfDuS4JMb3.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    A Freira
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Quando uma jovem freira em uma abadia de clausura na Romênia tira a própria vida, um padre com um passado assombrado e uma noviça no limiar de seus votos finais são enviados pelo Vaticano para investigar o caso. Juntos, eles descobrem o segredo profano da ordem. Arriscando não apenas suas vidas, mas sua fé e suas próprias almas, eles enfrentam uma força maléfica na forma da mesma freira demoníaca que primeiro aterrorizou o público em "Invocação do Mal 2", enquanto a abadia se torna um campo de batalha horrível entre os vivos e os condenados.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>236.667</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>5.8</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>993</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="439079">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-439079"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-346910" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(346910)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/yhIqpoYFnAra24si0JqFEWdiPOX.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    O Predador
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Uma perseguição entre naves alienígenas traz à Terra um novo predador, que acaba sendo capturado por humanos. Antes disso, ele tem seu capacete e bracelete roubados por Quinn McKenna (Boyd Holbrook), um atirador de elite que estava em missão no local onde a nave caiu. A bióloga Casey Brackett (Olivia Munn) é então chamada para examinar o ser recém-descoberto, mas ele logo consegue escapar do laboratório em que é mantido cativeiro. Ao tentar recapturá-lo Casey encontra McKenna, que está em um ônibus repleto de ex-militares com problemas. Juntos, eles buscam um meio de sobreviver e, ao mesmo tempo, proteger o pequeno Rory (Jacob Tremblay), filho de McKenna, que está com os artefatos alienígenas pegos pelo pai.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>216.645</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>5.3</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>460</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="346910">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-346910"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-299536" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(299536)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/rkHe0BfOo1f5N2q6rxgdYac7Zf6.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Vingadores: Guerra Infinita
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Enquanto os Vingadores e seus aliados continuaram a proteger o mundo de ameaças grandes demais para qualquer herói, uma nova ameaça emergiu das sombras cósmicas: Thanos. Um déspota de infâmia intergalática, tem o objetivo de coletar todas as seis Joias do Infinito, artefatos de poder inimaginável, e usá-las para infligir sua vontade distorcida em toda a realidade. Tudo pelo que os Vingadores lutaram levou até este momento - o destino da Terra e da própria existência nunca foi tão incerto.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>145.711</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>8.3</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>8562</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="299536">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-299536"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-400155" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(400155)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/fX1C1BECq6Mkv3RM74t9miaXpnV.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Hotel Transilvânia 3: Férias Monstruosas
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Solitário e infeliz, buscando um novo amor na internet, Drácula é surpreendido com um presente da querida filha: férias em um cruzeiro. Inicialmente resistente à ideia, ele acaba engajado no passeio ao se encantar pela comandante, que, no entanto, esconde um segredo nada amigável.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>121.915</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6.8</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>757</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="400155">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-400155"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-351286" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(351286)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/5PWRDsozYR1VeExrFLqZ8Qpw07m.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Jurassic World: Reino Ameaçado
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Quatro anos após o fechamento do Jurassic World, um vulcão prestes a entrar em erupção põe em risco a vida na ilha Nublar. No local não há mais qualquer presença humana, com os dinossauros vivendo livremente. Diante da situação, é preciso tomar uma decisão: deve-se retornar à ilha para salvar os animais ou abandoná-los para uma nova extinção? Decidida a resgatá-los, Claire (Bryce Dallas Howard) convoca Owen (Chris Pratt) a retornar à ilha com ela.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>116.281</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6.5</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>3786</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="351286">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-351286"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-463272" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(463272)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/qyRVCbl9qJSVFLXps14sB7fwhC3.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Johnny English 3.0
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Em sua nova aventura, Johnny English (Rowan Atkinson) é a última salvação do serviço secreto quando um ataque cibernético revela as identidades de todos os agentes do país. Tirado de sua aposentadoria, ele volta à ativa com a missão de achar o hacker por trás do ataque. Com poucas habilidades e métodos analógicos, Johnny English precisa superar os desafios do mundo tecnológico para fazer da missão um sucesso.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>111.206</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6.3</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>64</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="463272">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-463272"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-348350" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(348350)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/lJChjsNR7O1waqsOIqlkePoGtZJ.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Han Solo: Uma História Star Wars
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Embarque na Millennium Falcon e viaje para uma galáxia distante em uma nova aventura com o mais amado canalha da galáxia. Através de uma série de ousadas aventuras no obscuro e perigoso submundo do crime, Han Solo encontra seu poderoso futuro copiloto Chewbacca e encontra o famoso jogador Lando Calrissian, em uma jornada que definirá o curso de um dos heróis mais improváveis da saga Star Wars.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>109.857</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6.7</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>2074</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="348350">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-348350"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-284054" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(284054)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/8TjvIO8ZJPKrMKXEjOVGNSzuO6q.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Pantera Negra
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Após a morte do Rei T'Chaka (John Kani), o príncipe T'Challa (Chadwick Boseman) retorna a Wakanda para a cerimônia de coroação. Nela são reunidas as cinco tribos que compõem o reino, sendo que uma delas, os Jabari, não apoia o atual governo. T'Challa logo recebe o apoio de Okoye (Danai Gurira), a chefe da guarda de Wakanda, da irmã Shuri (Letitia Wright), que coordena a área tecnológica do reino, e também de Nakia (Lupita Nyong'o), a grande paixão do atual Pantera Negra, que não quer se tornar rainha. Juntos, eles estão à procura de Ulysses Klaue (Andy Serkis), que roubou de Wakanda um punhado de vibranium, alguns anos atrás.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>108.075</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>7.4</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>8435</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="284054">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-284054"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-353081" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(353081)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/94NFGXdkouyjtuDu9aYac3cSMQc.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Missão: Impossível - Efeito Fallout
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Quando uma importante missão não sai como o planejado, Ethan Hunt (Tom Cruise) e o time do IMF unem forças em ação numa corrida contra o tempo para acertar as contas com os erros do passados.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>107.462</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>7.3</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>1796</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="353081">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-353081"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-332562" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(332562)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/dpwzjPN6VfACHYNomHUfOuwhSyV.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Nasce Uma Estrela
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Nesta releitura da trágica história de amor, Cooper interpreta o experiente músico Jackson Maine, que descobre a artista desconhecida Ally (Gaga), por quem se apaixona. Ela está prestes a desistir de seu sonho de se tornar uma cantora de sucesso... até que Jack a convence a mudar de ideia. Porém, apesar de a carreira de Ally decolar, o relacionamento pessoal entre os dois começa a desandar, à medida que Jack luta contra seus próprios demônios.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>107.285</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>7.2</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>199</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="332562">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-332562"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-446894" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(446894)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/5NFoDEj8O0PnWNr13aPs9KmlZOO.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    PéPequeno
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Um yeti, criatura conhecida como o Abominável Homem das Neves, está indo na contramão do que todos os seus semelhantes acreditam: ele tem a certeza que os seres humanos, para eles até então um mito, realmente existem, mesmo que todos da sua espécie neguem com veemência. Mas ele não irá desistir tão fácil de provar sua tese.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>96.737</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>7.4</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>43</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="446894">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-446894"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-345940" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(345940)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/93I5nbYx3If3pFZZV5x5NJ68fTs.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Megatubarão
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    No filme, um submarino de águas profundas – parte de um programa internacional de observação subaquática – foi atacado por uma criatura gigantesca, que se pensava estar extinta. Agora, ele se encontra incapacitado no fundo da fossa mais profunda do Oceano Pacífico... com a tripulação presa dentro dele. Com o tempo se esgotando, o mergulhador especializado em resgates em águas profundas Jonas Taylor é recrutado por um visionário oceanógrafo chinês, contra a vontade de sua filha Suyin, para salvar a tripulação – e o próprio oceano – desta ameaça incontrolável: um tubarão pré-histórico com mais de 20 metros de comprimento conhecido como Megalodon. O que ninguém poderia imaginar é que, anos antes, Taylor já havia encontrado esta mesma criatura aterrorizante. Agora, junto com Suyin, ele deve confrontar seus medos e arriscar sua própria vida para salvar todos os tripulantes... ficando frente a frente com o maior e mais poderoso predador de todos os tempos.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>92.164</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>1125</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="345940">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-345940"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-383498" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(383498)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/1StH1Yye2ssizggxgH20prw8eEF.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Deadpool 2
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Quando o super soldado Cable chega em uma missão para assassinar o jovem mutante Russel, o mercenário Deadpool precisa aprender o que é ser herói de verdade para salvá-lo. Para isso, ele recruta seu velho amigo Colossus e forma o novo grupo X-Force, sempre com o apoio do fiel escudeiro Dopinder.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>84.823</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>7.5</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>5419</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="383498">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-383498"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-442249" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(442249)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/mDeTqCBAoRHD9zQXZefhtJs2sez.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    A Primeira Noite de Crime
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Quando um novo partido político, o New Founding Fathers of America, ascende, é anunciado um novo experimento social. São 12 horas sem lei, em que o governo incentiva as pessoas a perderem toda e qualquer inibição. A participação não é obrigatória, mas como estímulo, 5.000 dólares é dado para quem fica na cidade, e mais prêmios para quem participa.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>83.66</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>5.8</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>961</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="442249">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-442249"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+<!-- The overlay -->
+    <div id="movie-content-447200" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent(447200)">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content overlay-font">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="poster float-left">
+                                <img src="https://image.tmdb.org/t/p/w500/iCWFqns8tpBLdMwvLix8QjagiP8.jpg" width="220" height="342">
+                            </div>
+                        </div>
+                        <div class="col-md-9 movie-content mt-1">
+                            <div class="movie-title pb-3">
+                                <span>
+                                    Arranha-Céu: Coragem Sem Limite
+                                </span>
+                            </div>
+                            <div class="movie-description pb-3">
+                                <span>
+                                    Responsável pela segurança de arranha-céus, o veterano de guerra americano e ex-líder da operação de resgate do FBI, Will Ford (Dwayne Johnson), é acusado de ter colocado o edifício mais alto e mais seguro da China em chamas. Cabe ao agente então achar os culpados pelo incêndio, salvar sua família que está presa dentro do prédio e limpar seu nome antes que seja tarde demais.
+                                </span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>82.396</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>6.1</span>
+                            </div>
+                            <div class="movie-info">
+                                <label>Data de Lancamento:</label>
+                                <span>914</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mt-5 border-bottom">
+                        <div class="movie-trailer-desc">
+                            <span class="movie-subtitle">Trailer</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-4 col-md-2"></div>
+                        <div class="col-7 col-md-8">
+                            <div class="movie-trailer" data-movie-id="447200">
+                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-447200"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-2"></div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+
     <!-- Main Page Content -->
-    <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark" role="navigation">
         <div class="container">
-          <div class="navbar-header">
+            <div class="navbar-header">
             <a class="navbar-brand" href="#">Filmes Populares do momento</a>
-          </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </nav>
+
     <div class="container">
       
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="-8E9kzmeN7s" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(335983)" data-movie-id="335983" data-trailer-youtube-id="-8E9kzmeN7s" data-toggle="overlay" data-target="#movie-content-335983">
     <img src="https://image.tmdb.org/t/p/w500/6RN23T5s0pOsfRJ7h9WAIh44VfY.jpg" width="220" height="342">
     <h2>Venom</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="RgTY0gUS21E" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/sPOHPSiNdMtWj0H4PywiCv4PdYB.jpg" width="220" height="342">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(363088)" data-movie-id="363088" data-trailer-youtube-id="RgTY0gUS21E" data-toggle="overlay" data-target="#movie-content-363088">
+    <img src="https://image.tmdb.org/t/p/w500/azH25XpelbpzSEg8JoQVJQsFNF7.jpg" width="220" height="342">
     <h2>Homem-Formiga e a Vespa</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4V44ew-laC4" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(439079)" data-movie-id="439079" data-trailer-youtube-id="4V44ew-laC4" data-toggle="overlay" data-target="#movie-content-439079">
     <img src="https://image.tmdb.org/t/p/w500/9ShELeGBnk5HYgI0cLfDuS4JMb3.jpg" width="220" height="342">
     <h2>A Freira</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="3BXq73F2_z4" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/rkHe0BfOo1f5N2q6rxgdYac7Zf6.jpg" width="220" height="342">
-    <h2>Vingadores: Guerra Infinita</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EqKajgmcs4M" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/lJChjsNR7O1waqsOIqlkePoGtZJ.jpg" width="220" height="342">
-    <h2>Han Solo: Uma História Star Wars</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="_tjYWF1wEf4" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(346910)" data-movie-id="346910" data-trailer-youtube-id="_tjYWF1wEf4" data-toggle="overlay" data-target="#movie-content-346910">
     <img src="https://image.tmdb.org/t/p/w500/yhIqpoYFnAra24si0JqFEWdiPOX.jpg" width="220" height="342">
     <h2>O Predador</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="woV7Af9rnLk" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/5PWRDsozYR1VeExrFLqZ8Qpw07m.jpg" width="220" height="342">
-    <h2>Jurassic World: Reino Ameaçado</h2>
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(299536)" data-movie-id="299536" data-trailer-youtube-id="3BXq73F2_z4" data-toggle="overlay" data-target="#movie-content-299536">
+    <img src="https://image.tmdb.org/t/p/w500/rkHe0BfOo1f5N2q6rxgdYac7Zf6.jpg" width="220" height="342">
+    <h2>Vingadores: Guerra Infinita</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="JYOEtlg7WtM" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/8TjvIO8ZJPKrMKXEjOVGNSzuO6q.jpg" width="220" height="342">
-    <h2>Pantera Negra</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="xvJ0OcJfLIE" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/iCWFqns8tpBLdMwvLix8QjagiP8.jpg" width="220" height="342">
-    <h2>Arranha-Céu: Coragem Sem Limite</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="X3lcqdCjUTY" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/mDeTqCBAoRHD9zQXZefhtJs2sez.jpg" width="220" height="342">
-    <h2>A Primeira Noite de Crime</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="CnfG2PVgDMs" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(400155)" data-movie-id="400155" data-trailer-youtube-id="CnfG2PVgDMs" data-toggle="overlay" data-target="#movie-content-400155">
     <img src="https://image.tmdb.org/t/p/w500/fX1C1BECq6Mkv3RM74t9miaXpnV.jpg" width="220" height="342">
     <h2>Hotel Transilvânia 3: Férias Monstruosas</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Y1gp1hSOxZg" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/1StH1Yye2ssizggxgH20prw8eEF.jpg" width="220" height="342">
-    <h2>Deadpool 2</h2>
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(351286)" data-movie-id="351286" data-trailer-youtube-id="woV7Af9rnLk" data-toggle="overlay" data-target="#movie-content-351286">
+    <img src="https://image.tmdb.org/t/p/w500/5PWRDsozYR1VeExrFLqZ8Qpw07m.jpg" width="220" height="342">
+    <h2>Jurassic World: Reino Ameaçado</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="O17-POymi38" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(463272)" data-movie-id="463272" data-trailer-youtube-id="n96j_hOC0OU" data-toggle="overlay" data-target="#movie-content-463272">
+    <img src="https://image.tmdb.org/t/p/w500/qyRVCbl9qJSVFLXps14sB7fwhC3.jpg" width="220" height="342">
+    <h2>Johnny English 3.0</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(348350)" data-movie-id="348350" data-trailer-youtube-id="EqKajgmcs4M" data-toggle="overlay" data-target="#movie-content-348350">
+    <img src="https://image.tmdb.org/t/p/w500/lJChjsNR7O1waqsOIqlkePoGtZJ.jpg" width="220" height="342">
+    <h2>Han Solo: Uma História Star Wars</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(284054)" data-movie-id="284054" data-trailer-youtube-id="JYOEtlg7WtM" data-toggle="overlay" data-target="#movie-content-284054">
+    <img src="https://image.tmdb.org/t/p/w500/8TjvIO8ZJPKrMKXEjOVGNSzuO6q.jpg" width="220" height="342">
+    <h2>Pantera Negra</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(353081)" data-movie-id="353081" data-trailer-youtube-id="O17-POymi38" data-toggle="overlay" data-target="#movie-content-353081">
     <img src="https://image.tmdb.org/t/p/w500/94NFGXdkouyjtuDu9aYac3cSMQc.jpg" width="220" height="342">
     <h2>Missão: Impossível - Efeito Fallout</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="wITUolzfkwI" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/tR3CZJltJR1hxDhN6N791vBZS3q.jpg" width="220" height="342">
-    <h2>Homem-Formiga</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="WGsA2aXYBGo" data-toggle="modal" data-target="#trailer">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(332562)" data-movie-id="332562" data-trailer-youtube-id="WGsA2aXYBGo" data-toggle="overlay" data-target="#movie-content-332562">
     <img src="https://image.tmdb.org/t/p/w500/dpwzjPN6VfACHYNomHUfOuwhSyV.jpg" width="220" height="342">
     <h2>Nasce Uma Estrela</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FMYVZ0JwfeI" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/6sVtz4UEgcFUqEOnFGPnGgoePow.jpg" width="220" height="342">
-    <h2>Thor: Ragnarok</h2>
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(446894)" data-movie-id="446894" data-trailer-youtube-id="dYxL4s0Hn5I" data-toggle="overlay" data-target="#movie-content-446894">
+    <img src="https://image.tmdb.org/t/p/w500/5NFoDEj8O0PnWNr13aPs9KmlZOO.jpg" width="220" height="342">
+    <h2>PéPequeno</h2>
 </div>
 
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="-di3XYRxyHY" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/w500/v1QQKq8M0fWxMgSdGOX1aCv8qMB.jpg" width="220" height="342">
-    <h2>Star Wars: Os Últimos Jedi</h2>
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(345940)" data-movie-id="345940" data-trailer-youtube-id="hBgLxMJELuw" data-toggle="overlay" data-target="#movie-content-345940">
+    <img src="https://image.tmdb.org/t/p/w500/93I5nbYx3If3pFZZV5x5NJ68fTs.jpg" width="220" height="342">
+    <h2>Megatubarão</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(383498)" data-movie-id="383498" data-trailer-youtube-id="Y1gp1hSOxZg" data-toggle="overlay" data-target="#movie-content-383498">
+    <img src="https://image.tmdb.org/t/p/w500/1StH1Yye2ssizggxgH20prw8eEF.jpg" width="220" height="342">
+    <h2>Deadpool 2</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(442249)" data-movie-id="442249" data-trailer-youtube-id="X3lcqdCjUTY" data-toggle="overlay" data-target="#movie-content-442249">
+    <img src="https://image.tmdb.org/t/p/w500/mDeTqCBAoRHD9zQXZefhtJs2sez.jpg" width="220" height="342">
+    <h2>A Primeira Noite de Crime</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent(447200)" data-movie-id="447200" data-trailer-youtube-id="xvJ0OcJfLIE" data-toggle="overlay" data-target="#movie-content-447200">
+    <img src="https://image.tmdb.org/t/p/w500/iCWFqns8tpBLdMwvLix8QjagiP8.jpg" width="220" height="342">
+    <h2>Arranha-Céu: Coragem Sem Limite</h2>
 </div>
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="../js/movie-content.js"></script>
   </body>
 </html>

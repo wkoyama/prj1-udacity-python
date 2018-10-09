@@ -8,7 +8,7 @@
     left: 0;
     top: 0;
     background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    background-color: rgba(0,0,0, 0.95); /* Black w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -16,15 +16,15 @@
 /* Position the content inside the overlay */
 .overlay-content {
     position: relative;
-    top: 25%; /* 25% from the top */
+    top: 10%; /* 25% from the top */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 
 .overlay-font{
-    font-size: 17pt;
-    color: snow;
+    font-size: 13pt;
+    color:  whitesmoke;
 }
 
 /* The navigation links inside the overlay */
@@ -48,6 +48,7 @@
     top: 35px;
     right: 45px;
     font-size: 60px;
+    z-index: 3;
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
@@ -57,6 +58,7 @@
         font-size: 40px;
         top: 35px;
         right: 35px;
+        z-index: 2;
     }
 }
 
@@ -102,12 +104,30 @@ h2 {
     background-color: white;
 }
 
-.movie-content {
-    margin-left: 21%;
-}
+/* .movie-content {
+} */
 
 .movie-title {
-    background: blueviolet;
-    margin-top: 3%;
+    /* background: blueviolet; */
+    /* margin-top: 3%; */
     text-align: left;
+    font-size: 25pt;
+    color: white;
+}
+
+.movie-description {
+    text-align: left;
+    font-size: 15pt;
+    color: ghostwhite;
+}
+
+.movie-subtitle {
+    text-align: left;
+    font-size: 20pt;
+}
+
+.movie-info {
+    text-align: left;
+    font-size: 15pt;
+    color: darkgrey;
 }
