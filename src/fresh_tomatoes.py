@@ -12,6 +12,8 @@ main_page_head = '''
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Filmes populares do momento!</title>
 
     <!-- Bootstrap 3 -->
@@ -52,15 +54,15 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center float-left" onclick="openMovieContent({movie_id})" data-movie-id="{movie_id}" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="overlay" data-target="#movie-content-{movie_id}">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left pt-5" onclick="openMovieContent({movie_id})" data-movie-id="{movie_id}" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="overlay" data-target="#movie-content-{movie_id}">
     <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
+    <h2 class="pt-3">{movie_title}</h2>
 </div>
 '''
 
 movie_tile_overlay_content = ''' 
 <!-- The overlay -->
-    <div id="movie-content-{movie_id}" class="overlay">
+    <div id="movie-content-{movie_id}" class="overlay" aria-hidden="true">
 
         <!-- Button to close the overlay navigation -->
         <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent({movie_id})">&times;</a>
@@ -69,9 +71,9 @@ movie_tile_overlay_content = '''
         <div class="overlay-content overlay-font">
             <div class="container-fluid">
                 <div class="container">
-                    <div class="row">
+                    <div class="row justify-content-md-center">
                         <div class="col-sm">
-                            <div class="poster float-left">
+                            <div class="poster">
                                 <img src="{poster_image_url}" width="220" height="342">
                             </div>
                         </div>
@@ -107,14 +109,11 @@ movie_tile_overlay_content = '''
                             <span class="movie-subtitle">Trailer</span>
                         </div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-4 col-md-2"></div>
-                        <div class="col-7 col-md-8">
+                    <div class="row mt-5 justify-content-md-center">
+                        <div class="col-12 col-md-8">
                             <div class="movie-trailer" data-movie-id="{movie_id}">
                                 <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-{movie_id}"></div>
                             </div>
-                        </div>
-                        <div class="col-4 col-md-2"></div>    
                         </div>
                     </div>
                 </div>

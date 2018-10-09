@@ -1,3 +1,5 @@
+
+
 // Pause the video when the modal is closed
 // $(document).on('click', '.hanging-close, .modal-backdrop, .movie-trailer', function (event) {
 //     // Remove the src so the player itself gets removed, as this is the only
@@ -30,11 +32,38 @@ $(document).ready(function () {
 /* Open */
 /* Open when someone clicks on the span element */
 function openMovieContent(id) {
+    var body = document.body,
+    overlay = document.getElementById("movie-content-" + id);
+
     document.getElementById("movie-content-" + id).style.width = "100%";
+    
+    overlay.setAttribute('aria-hidden', false);
+    body.classList.toggle('noscroll', true);
+
+    /* On some mobile browser when the overlay was previously
+    opened and scrolled, if you open it again it doesn't 
+    reset its scrollTop property after the fadeout */
+     setTimeout(function() {
+    overlay.scrollTop = 0;              }, 1000);
+
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeMovieContent(id) {
+
+    var body = document.body,
+    overlay = document.getElementById("movie-content-" + id);
+    
     document.getElementById("movie-content-" + id).style.width = "0%";
     $("#trailer-video-container-" + id).empty();
+    
+    overlay.setAttribute('aria-hidden', true);
+    body.classList.toggle('noscroll', false);
+
+    /* On some mobile browser when the overlay was previously
+    opened and scrolled, if you open it again it doesn't 
+    reset its scrollTop property after the fadeout */
+    setTimeout(function() {
+    overlay.scrollTop = 0;              }, 1000);
+    
 }
