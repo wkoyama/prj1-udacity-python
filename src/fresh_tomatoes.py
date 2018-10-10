@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
 import webbrowser
 import os
 import re
 import sys
+from datetime import datetime
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -89,16 +91,20 @@ movie_tile_overlay_content = '''
                                 </span>
                             </div>
                             <div class="movie-info">
-                                <label>Data de Lancamento:</label>
-                                <span>{movie_popularity}</span>
+                                <label>Data de Lançamento:</label>
+                                <span>{movie_release_date}</span>
                             </div>
+
                             <div class="movie-info">
-                                <label>Data de Lancamento:</label>
+                                <label>Media de Votos:</label>
                                 <span>{movie_vote_average}</span>
                             </div>
                             <div class="movie-info">
-                                <label>Data de Lancamento:</label>
+                                <label>Quantidade de votos:</label>
                                 <span>{movie_vote_count}</span>
+                            </div>
+                            <div class="movie-info">
+                                {movie_genre}
                             </div>
                         </div>
                     </div>
@@ -121,6 +127,11 @@ movie_tile_overlay_content = '''
         </div>
     </div>
 '''
+
+movie_tile_genre = '''
+    <span class="badge badge-secondary mr-2">{genre_description}</span>
+'''
+
 def create_movie_tiles_content(movies):
     # The HTML content for this section of the page
     content = ''
@@ -164,6 +175,16 @@ def create_movie_overlay_content(movies):
                               else None)
 
         if(trailer_youtube_id):
+            data = datetime.strptime(movie.release_date, '%Y-%m-%d')
+            data = data.strftime('%d/%m/%Y')
+            
+            genre_content=''
+            
+            for genre in movie.genres:
+                genre_content += movie_tile_genre.format(
+                    genre_description = genre
+                )
+
             # Append the tile for the movie with its content filled in
             content += movie_tile_overlay_content.format(
                 movie_title=movie.title,
@@ -174,7 +195,8 @@ def create_movie_overlay_content(movies):
                 poster_image_url=movie.image,
                 trailer_youtube_id=trailer_youtube_id,
                 movie_id=movie.id,
-                movie_release_date=movie.release_date
+                movie_release_date=data, 
+                movie_genre = genre_content
             )
     return content
 
@@ -186,8 +208,8 @@ def open_movies_page(movies):
 
     # Replace the movie tiles placeholder generated content
     rendered_content = main_page_content.format(
-        movie_overlay_content=create_movie_overlay_content(movies),
-        movie_tiles=create_movie_tiles_content(movies))
+        movie_overlay_content=create_movie_overlay_content(movies).encode("utf-8"),
+        movie_tiles=create_movie_tiles_content(movies).encode("utf-8"))
 
     # Output the file
     output_file.write(main_page_head + rendered_content)

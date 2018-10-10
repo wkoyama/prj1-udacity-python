@@ -43,8 +43,9 @@ function openMovieContent(id) {
     /* On some mobile browser when the overlay was previously
     opened and scrolled, if you open it again it doesn't 
     reset its scrollTop property after the fadeout */
-     setTimeout(function() {
-    overlay.scrollTop = 0;              }, 1000);
+    setTimeout(function() {
+        overlay.scrollTop = 0;              
+    }, 1000);
 
 }
 
@@ -64,6 +65,7 @@ function closeMovieContent(id) {
     opened and scrolled, if you open it again it doesn't 
     reset its scrollTop property after the fadeout */
     setTimeout(function() {
-    overlay.scrollTop = 0;              }, 1000);
+        overlay.scrollTop = 0;              
+    }, 1000);
     
 }

@@ -19,6 +19,7 @@ class Movie(Media):
         self.vote_average = item['vote_average']
         self.vote_count = item['vote_count']
         self.popularity = item['popularity']
+        self.genres = MovieDB().get_genre_info(item['genre_ids'])
         self.videos = MovieDB().get_videos(item['id'])
         
         if (len(self.videos['results']) == 0):

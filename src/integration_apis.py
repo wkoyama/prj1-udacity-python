@@ -25,5 +25,29 @@ class MovieDB():
     def get_youtube_video(self, item):
         url = "https://www.youtube.com/watch?v=" + item['key']
         return url
+
+    def get_genres(self):
+        url = "https://api.themoviedb.org/3/genre/movie/list?language=pt-BR&" + self.get_key()
+        payload = "{}"
+        response = requests.request("GET", url, data=payload)
         
+        all_genres = json.loads(response.text)['genres']
+
+        genres_description = {}
+
+        for genre in all_genres:
+            current = genre['id']
+            description = genre['name']
+            genres_description[current] = description
+
+        return genres_description
+    
+    def get_genre_info(self, genres):
+        genres_description = self.get_genres()
+
+        arrReturn = []
+        for key in genres:
+            arrReturn.append(genres_description[key])    
+
+        return arrReturn
 #MovieDB().get_popular()
