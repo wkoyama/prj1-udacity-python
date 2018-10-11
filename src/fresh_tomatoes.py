@@ -14,24 +14,24 @@ main_page_head = '''
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Filmes populares do momento!</title>
 
     <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/movie-content.css">
 </head>
 '''
 
-
 # The main page layout and title bar
 main_page_content = '''
   <body>
-    
     {movie_overlay_content}
-
     <!-- Main Page Content -->
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark" role="navigation">
         <div class="container">
@@ -45,30 +45,48 @@ main_page_content = '''
       {movie_tiles}
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous">
+    </script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous">
+    </script>
+    <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+    </script>
     <script src="../js/movie-content.js"></script>
   </body>
 </html>
 '''
 
-
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center float-left pt-5" onclick="openMovieContent({movie_id})" data-movie-id="{movie_id}" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="overlay" data-target="#movie-content-{movie_id}">
+<div class="col-md-6 col-lg-4 movie-tile text-center float-left pt-5"
+onclick="openMovieContent({movie_id})"
+data-movie-id="{movie_id}"
+data-trailer-youtube-id="{trailer_youtube_id}"
+data-toggle="overlay"
+data-target="#movie-content-{movie_id}">
     <img src="{poster_image_url}" width="220" height="342">
     <h2 class="pt-3">{movie_title}</h2>
 </div>
 '''
 
-movie_tile_overlay_content = ''' 
+# A single overlay movie entry
+movie_tile_overlay_content = '''
 <!-- The overlay -->
     <div id="movie-content-{movie_id}" class="overlay" aria-hidden="true">
 
         <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="closebtn hanging-close" data-dismiss="overlay" onclick="closeMovieContent({movie_id})">&times;</a>
-      
+        <a href="javascript:void(0)"
+        class="closebtn hanging-close"
+        data-dismiss="overlay"
+        onclick="closeMovieContent({movie_id})">&times;</a>
+
         <!-- Overlay content -->
         <div class="overlay-content overlay-font">
             <div class="container-fluid">
@@ -76,7 +94,9 @@ movie_tile_overlay_content = '''
                     <div class="row justify-content-md-center">
                         <div class="col-sm">
                             <div class="poster">
-                                <img src="{poster_image_url}" width="220" height="342">
+                                <img src="{poster_image_url}"
+                                width="220"
+                                height="342">
                             </div>
                         </div>
                         <div class="col-md-9 movie-content mt-1">
@@ -110,15 +130,19 @@ movie_tile_overlay_content = '''
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row mt-5 border-bottom">
+                    <div class="row mt-4 border-bottom">
                         <div class="movie-trailer-desc">
                             <span class="movie-subtitle">Trailer</span>
                         </div>
                     </div>
                     <div class="row mt-5 justify-content-md-center">
                         <div class="col-12 col-md-8">
-                            <div class="movie-trailer" data-movie-id="{movie_id}">
-                                <div class="embed-responsive embed-responsive-16by9" id="trailer-video-container-{movie_id}"></div>
+                            <div class="movie-trailer"
+                            data-movie-id="{movie_id}">
+                                <div
+                                class="embed-responsive embed-responsive-16by9"
+                                id="trailer-video-container-{movie_id}">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,9 +152,11 @@ movie_tile_overlay_content = '''
     </div>
 '''
 
+# A single genre badge
 movie_tile_genre = '''
     <span class="badge badge-secondary mr-2">{genre_description}</span>
 '''
+
 
 def create_movie_tiles_content(movies):
     # The HTML content for this section of the page
@@ -158,8 +184,9 @@ def create_movie_tiles_content(movies):
             )
     return content
 
+
 def create_movie_overlay_content(movies):
-    # The HTML content for this section of the page
+    # The HTML content for overlay movie
     content = ''
     for movie in movies:
         if movie.trailer_url:
@@ -177,15 +204,13 @@ def create_movie_overlay_content(movies):
         if(trailer_youtube_id):
             data = datetime.strptime(movie.release_date, '%Y-%m-%d')
             data = data.strftime('%d/%m/%Y')
-            
-            genre_content=''
-            
-            for genre in movie.genres:
-                genre_content += movie_tile_genre.format(
-                    genre_description = genre
-                )
 
-            # Append the tile for the movie with its content filled in
+            genre_content = ''
+            for genre in movie.genres:
+                genre_content +=
+                movie_tile_genre.format(genre_description=genre)
+
+            # Append the tile with its content to render
             content += movie_tile_overlay_content.format(
                 movie_title=movie.title,
                 movie_description=movie.description,
@@ -195,20 +220,20 @@ def create_movie_overlay_content(movies):
                 poster_image_url=movie.image,
                 trailer_youtube_id=trailer_youtube_id,
                 movie_id=movie.id,
-                movie_release_date=data, 
-                movie_genre = genre_content
+                movie_release_date=data,
+                movie_genre=genre_content
             )
     return content
 
 
 def open_movies_page(movies):
-    os.chdir("prj1-udacity-python")
     # Create or overwrite the output file
     output_file = open('./pages/fresh_tomatoes.html', 'w')
 
     # Replace the movie tiles placeholder generated content
+    overlay = create_movie_overlay_content(movies).encode("utf-8")
     rendered_content = main_page_content.format(
-        movie_overlay_content=create_movie_overlay_content(movies).encode("utf-8"),
+        movie_overlay_content=overlay,
         movie_tiles=create_movie_tiles_content(movies).encode("utf-8"))
 
     # Output the file

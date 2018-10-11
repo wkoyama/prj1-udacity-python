@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 class MovieDB():
 
     def __init__(self):
@@ -9,15 +10,20 @@ class MovieDB():
 
     def get_key(self):
         return "api_key=" + self.API_KEY
-    
+
     def get_popular(self):
-        url = "https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1&" + self.get_key()
+        url =
+        "https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1&"
+        + self.get_key()
         payload = "{}"
         response = requests.request("GET", url, data=payload)
         return json.loads(response.text)
 
     def get_videos(self, movie_id):
-        url = "https://api.themoviedb.org/3/movie/" + str(movie_id) + "/videos?language=pt-BR&page=1&" + self.get_key()
+        url = "https://api.themoviedb.org/3/movie/"
+        + str(movie_id)
+        + "/videos?language=pt-BR&page=1&"
+        + self.get_key()
         payload = "{}"
         response = requests.request("GET", url, data=payload)
         return json.loads(response.text)
@@ -27,10 +33,11 @@ class MovieDB():
         return url
 
     def get_genres(self):
-        url = "https://api.themoviedb.org/3/genre/movie/list?language=pt-BR&" + self.get_key()
+        url = "https://api.themoviedb.org/3/genre/movie/list?language=pt-BR&"
+        + self.get_key()
         payload = "{}"
         response = requests.request("GET", url, data=payload)
-        
+
         all_genres = json.loads(response.text)['genres']
 
         genres_description = {}
@@ -41,13 +48,12 @@ class MovieDB():
             genres_description[current] = description
 
         return genres_description
-    
+
     def get_genre_info(self, genres):
         genres_description = self.get_genres()
 
         arrReturn = []
         for key in genres:
-            arrReturn.append(genres_description[key])    
+            arrReturn.append(genres_description[key])
 
         return arrReturn
-#MovieDB().get_popular()
