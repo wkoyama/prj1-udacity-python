@@ -207,8 +207,9 @@ def create_movie_overlay_content(movies):
 
             genre_content = ''
             for genre in movie.genres:
-                genre_content +=
-                movie_tile_genre.format(genre_description=genre)
+                genre_content += movie_tile_genre.format(
+                    genre_description=genre
+                )
 
             # Append the tile with its content to render
             content += movie_tile_overlay_content.format(
