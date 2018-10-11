@@ -7,23 +7,28 @@ class MovieDB():
     def __init__(self):
         self.API_KEY = "6346f2fccfe152d1e521b16b34ee607c"
         self.AUTH_TOKEN = "eyJhdWQiOiI2MzQ2ZjJmY2NmZTE1MmQxZTUyMWIxNmIzNGVlNjA3YyIsInN1YiI6IjViYjU4MDE5YzNhMzY4MTUwYzAwNWIxNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MMVA7pKzeCpBybkhGvJN0LhIR9QiNsyt8IdyLwSttDo"
+        self.domain = "https://api.themoviedb.org/3"
 
     def get_key(self):
         return "api_key=" + self.API_KEY
 
     def get_popular(self):
-        url =
-        "https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1&"
-        + self.get_key()
+        key = self.get_key()
+        domain = self.domain
+        query_params = "language=pt-BR&page=1"
+        url = "{domain!r}/movie/popular?{query_params!r}&{key!r}"
         payload = "{}"
         response = requests.request("GET", url, data=payload)
         return json.loads(response.text)
 
     def get_videos(self, movie_id):
-        url = "https://api.themoviedb.org/3/movie/"
-        + str(movie_id)
-        + "/videos?language=pt-BR&page=1&"
-        + self.get_key()
+        key = self.get_key()
+        domain = self.domain
+        str_movie_id = str(movie_id)
+        query_params = "language=pt-BR&page=1"
+
+        url = "{domain!r}/movie/{str_movie_id!r}/videos?"
+        url += "{query_params!r}&{key!r}"
         payload = "{}"
         response = requests.request("GET", url, data=payload)
         return json.loads(response.text)
@@ -33,8 +38,8 @@ class MovieDB():
         return url
 
     def get_genres(self):
-        url = "https://api.themoviedb.org/3/genre/movie/list?language=pt-BR&"
-        + self.get_key()
+        key = self.get_key()
+        url = "{domain!r}/genre/movie/list?language=pt-BR&{key!r}"
         payload = "{}"
         response = requests.request("GET", url, data=payload)
 
