@@ -52,7 +52,13 @@ class MovieDB():
 
     def get_genres(self):
         key = self.get_key()
-        url = "{domain!r}/genre/movie/list?language=pt-BR&{key!r}"
+        domain = self.domain
+
+        url = ''
+        url += domain
+        url += "/genre/movie/list?language=pt-BR&"
+        url += key
+
         payload = "{}"
         response = requests.request("GET", url, data=payload)
 
