@@ -16,7 +16,14 @@ class MovieDB():
         key = self.get_key()
         domain = self.domain
         query_params = "language=pt-BR&page=1"
-        url = "{domain!r}/movie/popular?{query_params!r}&{key!r}"
+
+        url = ''
+        url += domain
+        url += "/movie/popular?"
+        url += query_params
+        url += "&"
+        url += key
+
         payload = "{}"
         response = requests.request("GET", url, data=payload)
         return json.loads(response.text)
@@ -27,8 +34,14 @@ class MovieDB():
         str_movie_id = str(movie_id)
         query_params = "language=pt-BR&page=1"
 
-        url = "{domain!r}/movie/{str_movie_id!r}/videos?"
-        url += "{query_params!r}&{key!r}"
+        url = ''
+        url += domain
+        url += "/movie/"
+        url += str_movie_id
+        url += "/videos?"
+        url += query_params
+        url += "&" + key
+
         payload = "{}"
         response = requests.request("GET", url, data=payload)
         return json.loads(response.text)
