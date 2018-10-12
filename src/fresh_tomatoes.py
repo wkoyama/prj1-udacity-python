@@ -229,7 +229,7 @@ def create_movie_overlay_content(movies):
 
 def open_movies_page(movies):
     # Create or overwrite the output file
-    output_file = open('./pages/fresh_tomatoes.html', 'w')
+    output_file = open('../pages/fresh_tomatoes.html', 'w')
 
     # Replace the movie tiles placeholder generated content
     overlay = create_movie_overlay_content(movies).encode("utf-8")
